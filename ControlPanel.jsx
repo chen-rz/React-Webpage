@@ -5,6 +5,8 @@ import SystemLoadGauge from "./SystemLoadGauge";
 import DeviceParticipationCard from "./DeviceParticipationCard";
 import PerformanceCharts from "./PerformanceCharts";
 import Logo from "./logo.svg";
+import lossData from "./data/lossData";
+import accuracyData from "./data/accuracyData";
 
 export default function ControlPanel() {
   // Nagivate to Device Information page
@@ -31,36 +33,10 @@ export default function ControlPanel() {
   const participatingDevices = new Set([25, 28, 23, 16, 37, 38, 3, 35, 17, 14, 9, 36, 12, 34, 29]);
 
   // Example System Load (0 to 100)
-  const systemLoad = 63;
+  const systemLoad = 86;
 
   // Define FL training stages
   const currentStage = "Local Training";
-  
-  // Example Loss & Accuracy Data
-  const lossData = [
-    { round: 1, loss: 0.8 },
-    { round: 2, loss: 0.7 },
-    { round: 3, loss: 0.6 },
-    { round: 4, loss: 0.5 },
-    { round: 5, loss: 0.4 },
-    { round: 6, loss: 0.3 },
-    { round: 7, loss: 0.2 },
-    { round: 8, loss: 0.1 },
-    { round: 9, loss: 0.05 },
-    { round: 10, loss: 0.01 },
-  ];
-  const accuracyData = [
-    { round: 1, accuracy: 0.6 },
-    { round: 2, accuracy: 0.7 },
-    { round: 3, accuracy: 0.8 },
-    { round: 4, accuracy: 0.9 },
-    { round: 5, accuracy: 0.95 },
-    { round: 6, accuracy: 0.96 },
-    { round: 7, accuracy: 0.97 },
-    { round: 8, accuracy: 0.98 },
-    { round: 9, accuracy: 0.99 },
-    { round: 10, accuracy: 1.0 },
-  ];
 
   return (
     <Box sx={{ backgroundColor: "#f4f6f8", minHeight: "100vh", p: 4 }}>

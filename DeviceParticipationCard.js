@@ -13,7 +13,7 @@ const DeviceParticipationCard = ( {totalDevices, participatingDevices} ) => {
           {Array.from({ length: totalDevices }, (_, i) => {
             const isParticipating = participatingDevices.has(i);
             return (
-              <Tooltip key={i} title={`Device ${i + 1}: ${isParticipating ? "Involved" : "Not Involved"}`} arrow>
+              <Tooltip key={i} title={`Device ${i}: ${isParticipating ? "Involved" : "Not Involved"}`} arrow>
                 <Box
                   sx={{
                     width: 12,
