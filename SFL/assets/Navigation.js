@@ -1,4 +1,4 @@
-import { Toolbar, Typography, Box, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from "@mui/material";
+import { Toolbar, Typography, Box, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Home, BarChart, Settings } from "@mui/icons-material";
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
@@ -27,23 +27,21 @@ export default function Navigation() {
         }}
       >
         {/* Sidebar Header */}
-        <Toolbar sx={{ backgroundColor: "#B39CD0", height: "72px", display: "flex", alignItems: "center", paddingX: "16px" }}>
+        <Toolbar sx={{ backgroundColor: "#B39CD0", height: "72px", display: "flex", alignItems: "center", paddingX: "6px" }}>
           <Box display="flex" alignItems="center" gap={1}>
-            <img src={logo} alt="Logo" width={40} />
-            <Typography variant="h6" noWrap fontWeight="bold">
-              FL Dashboard
+            <img src={logo} alt="Logo" width={30} />
+            <Typography variant="h8" noWrap fontWeight="bold">
+              分布式智能与数据服务
             </Typography>
           </Box>
         </Toolbar>
-        
-        <Divider sx={{ backgroundColor: "#B39CD0" }} />
 
         {/* Navigation Links */}
         <List sx={{ paddingX: "12px" }}>
           {[
-            { text: "Home", icon: <Home />, link: "/" },
-            { text: "Devices", icon: <BarChart />, link: "/SFL/devices" },
-            { text: "Main Panel", icon: <Settings />, link: "/SFL/control" },
+            { text: "主面板", icon: <Settings />, link: "/SFL/control" },
+            { text: "终端设备信息", icon: <BarChart />, link: "/SFL/devices" },
+            { text: "系统首页", icon: <Home />, link: "/" },
           ].map(({ text, icon, link }) => (
             <ListItem 
               button 

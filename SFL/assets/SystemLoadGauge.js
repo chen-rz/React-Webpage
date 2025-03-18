@@ -30,7 +30,7 @@ const SystemLoadGauge = ({ systemLoad, participationRate }) => {
         <Grid item xs={6}>
           <Box display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h6" fontWeight="bold" gutterBottom>
-              System Load
+              系统负载
             </Typography>
             <Box width={150} height={150} position="relative">
               <ResponsiveContainer width="100%" height="100%">
@@ -69,7 +69,7 @@ const SystemLoadGauge = ({ systemLoad, participationRate }) => {
         <Grid item xs={6}>
           <Box display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h6" fontWeight="bold" gutterBottom>
-              Device Participation Rate
+              终端设备参与率
             </Typography>
             <Box width={150} height={150} position="relative">
               <ResponsiveContainer width="100%" height="100%">

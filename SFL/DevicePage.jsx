@@ -11,7 +11,7 @@ export default function ControlPanel() {
   const [selectedTab, setSelectedTab] = useState(0);
 
   useEffect(() => {
-    document.title = "Federated Learning Dashboard";
+    document.title = "分布式人工智能与数据服务";
     const timer = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
     }, 1000);
@@ -29,17 +29,14 @@ export default function ControlPanel() {
 
       <Box sx={{ flexGrow: 1, marginLeft: "240px" }}>
         {/* Top Bar */}
-        <AppBar position="fixed"
-          sx={{ background: "#B39CD0", height: "72px", zIndex: 1201, marginLeft: "240px", width: "calc(100% - 240px)", boxShadow: "none", borderBottom: "2px solid #8A6BBE" }}
-        >
-          <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "100%" }}>
+        <AppBar position="fixed" sx={{ background: "#B39CD0", height: "72px", zIndex: 1201, marginLeft: "240px", width: "calc(100% - 240px)", boxShadow: "none" }}>
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "100%", borderBottom: "2px solid #B39CD0" }}>
             <Typography variant="h6" noWrap fontWeight="bold" sx={{ color: "#3D315B", display: "flex", alignItems: "center", height: "100%" }}>
-              Federated Learning Dashboard
+              分割联邦学习控制面板
             </Typography>
             <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" sx={{ height: "100%", display: "flex", alignItems: "center" }}>
-              <Tab label="Device Info" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
-              <Tab label="Charts" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
-              <Tab label="广告位招租" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
+              <Tab label="终端设备信息" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
+              <Tab label="图表" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
             </Tabs>
             <Typography variant="subtitle1" fontWeight="bold" sx={{ color: "#3D315B", display: "flex", alignItems: "center", height: "100%" }}>
               {currentTime}
@@ -62,30 +59,30 @@ export default function ControlPanel() {
           }}
         >
           <Button variant="contained" color="success" onClick={() => alert("Training Started!")}>
-            Start Training
+            开始训练
           </Button>
           <Button variant="contained" color="error" onClick={() => alert("Training Ended!")}>
-            End Training
+            结束训练
           </Button>
           <Button variant="contained" color="primary" onClick={() => alert("Exporting Statistics...")}>
-            Export Stats
+            导出统计数据
           </Button>
           <Button variant="contained" sx={{ backgroundColor: "#FFB6B9", color: "#FFF" }} onClick={() => alert("Paused Training!")}>
-            Pause Training
+            暂停训练并存档
           </Button>
           <Button variant="contained" sx={{ backgroundColor: "#FFDD67", color: "#000" }} onClick={() => alert("Resumed Training!")}>
-            Resume Training
+            从存档恢复训练
           </Button>
           <Button variant="contained" sx={{ backgroundColor: "#A1C181", color: "#FFF" }} onClick={() => alert("Resetting Training...")}>
-            Reset Training
+            重置训练
           </Button>
         </Box>
 
         {/* Content Area */}
-        <Box sx={{ marginTop: "72px", padding: "12px" }}> {/* Reduced padding for less margin to page borders */}
+        <Box sx={{ marginTop: "50px", padding: "12px" }}> {/* Reduced padding for less margin to page borders */}
 
           <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: "bold", color: "#333" }}>
-            Device Information
+            终端设备信息
           </Typography>
 
           {selectedTab === 0 && (
@@ -94,7 +91,7 @@ export default function ControlPanel() {
                 <Card key={device.id} sx={{ boxShadow: 3, borderRadius: 2 }}>
                   <CardContent>
                     <Typography variant="h6" gutterBottom mb={2}>
-                      Device {device.id}
+                      终端设备 {device.id}
                     </Typography>
                     
                     <LinearProgress variant="determinate" value={device.progress} sx={{ height: 8, borderRadius: 4, backgroundColor: "#e0e0e0" }} />
@@ -102,19 +99,19 @@ export default function ControlPanel() {
                     {/* CPU */}
                     <Box display="flex" alignItems="center" gap={1} mt={2}>
                       <Cpu color="#3b82f6" size={20} />
-                      <Typography variant="body2">CPU: {device.cpu} GFLOPS</Typography>
+                      <Typography variant="body2">计算能力: {device.cpu} GFLOPS</Typography>
                     </Box>
 
                     {/* Data */}
                     <Box display="flex" alignItems="center" gap={1} mt={1}>
                       <Database color="#10b981" size={20} />
-                      <Typography variant="body2">Data: {device.data} Samples</Typography>
+                      <Typography variant="body2">数据样本: {device.data} </Typography>
                     </Box>
 
                     {/* Transmission Power */}
                     <Box display="flex" alignItems="center" gap={1} mt={1}>
                       <Wifi color="#f97316" size={20} />
-                      <Typography variant="body2">Transmission Power: {device.trans} mW</Typography>
+                      <Typography variant="body2">传输功率: {device.trans} mW</Typography>
                     </Box>
                   </CardContent>
                 </Card>
@@ -124,12 +121,6 @@ export default function ControlPanel() {
 
           {selectedTab === 1 && (
             <Box mt={6} maxWidth="1400px" mx="auto"> {/* Increased max width and top margin */}
-              
-            </Box>
-          )}
-
-          {selectedTab === 2 && (
-            <Box mt={6} maxWidth="1400px" mx="auto"> {/* Span full width on larger screens */}
               
             </Box>
           )}

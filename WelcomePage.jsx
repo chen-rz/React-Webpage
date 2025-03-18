@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Typography, Grid, Card, CardContent } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -12,14 +12,18 @@ import DnsIcon from "@mui/icons-material/Dns"; // Distributed Systems
 const WelcomePage = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "分布式人工智能与数据服务";
+  }, []);
+
   // Define sub-system panels with macaron pastel colors
   const panels = [
-    { name: "Split Federated Learning", icon: <ModelTrainingIcon fontSize="large" />, route: "/SFL/control", color: "#FFC3A0" },
-    { name: "Heterogeneous Devices", icon: <DevicesIcon fontSize="large" />, route: "/SFL/devices", color: "#A0E7E5" },
-    { name: "Distributed Inference", icon: <CloudSyncIcon fontSize="large" />, route: "/inference", color: "#B4F8C8" },
-    { name: "Data Cache & Retrieval", icon: <StorageIcon fontSize="large" />, route: "/data-cache", color: "#FFDEAD" },
-    { name: "Performance Monitoring", icon: <InsightsIcon fontSize="large" />, route: "/performance", color: "#A9DEF9" },
-    { name: "Distributed Systems", icon: <DnsIcon fontSize="large" />, route: "/distributed-systems", color: "#D9A7C7" },
+    { name: "分割联邦学习", icon: <ModelTrainingIcon fontSize="large" />, route: "/SFL/control", color: "#FFC3A0" },
+    { name: "异构联邦学习", icon: <DevicesIcon fontSize="large" />, route: "/notyet", color: "#A0E7E5" },
+    { name: "边缘大小模型协同", icon: <CloudSyncIcon fontSize="large" />, route: "/inference", color: "#B4F8C8" },
+    { name: "分布式推理服务", icon: <StorageIcon fontSize="large" />, route: "/data-cache", color: "#FFDEAD" },
+    { name: "数据缓存与检索", icon: <InsightsIcon fontSize="large" />, route: "/performance", color: "#A9DEF9" },
+    { name: "端边协同智能", icon: <DnsIcon fontSize="large" />, route: "/distributed-systems", color: "#D9A7C7" },
   ];
 
   return (
@@ -36,7 +40,7 @@ const WelcomePage = () => {
     >
       {/* Title */}
       <Typography variant="h4" fontWeight="bold" mb={4} color="#8D6E63">
-        Welcome to 分布式学习与数据服务系统
+        分布式人工智能与数据服务
       </Typography>
 
       {/* Grid of Cards - Adaptive Centering */}

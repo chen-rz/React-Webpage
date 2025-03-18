@@ -14,7 +14,7 @@ export default function ControlPanel() {
   const [selectedTab, setSelectedTab] = useState(0);
 
   useEffect(() => {
-    document.title = "Federated Learning Dashboard";
+    document.title = "分布式人工智能与数据服务";
     const timer = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
     }, 1000);
@@ -32,7 +32,7 @@ export default function ControlPanel() {
   const participationRate = 0.3;
   const participatingDevices = new Set([25, 28, 23, 16, 37, 38, 3, 35, 17, 14, 9, 36, 12, 34, 29]);
   const systemLoad = 86;
-  const currentStage = "Local Training";
+  const currentStage = "终端设备本地训练";
 
   return (
     <Box sx={{ backgroundColor: "#f4f6f8", minHeight: "100vh", p: 4 }}>
@@ -41,18 +41,18 @@ export default function ControlPanel() {
 
       <Box sx={{ flexGrow: 1, marginLeft: "240px" }}>
         {/* Top Bar */}
-        <AppBar position="fixed"
-          sx={{ background: "#B39CD0", height: "72px", zIndex: 1201, marginLeft: "240px", width: "calc(100% - 240px)", boxShadow: "none", borderBottom: "2px solid #8A6BBE" }}
-        >
-          <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "100%" }}>
+        <AppBar position="fixed" sx={{ background: "#B39CD0", height: "72px", zIndex: 1201, marginLeft: "240px", width: "calc(100% - 240px)", boxShadow: "none" }}>
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "100%", borderBottom: "2px solid #B39CD0" }}>
             <Typography variant="h6" noWrap fontWeight="bold" sx={{ color: "#3D315B", display: "flex", alignItems: "center", height: "100%" }}>
-              Federated Learning Dashboard
+              分割联邦学习控制面板
             </Typography>
+            
             <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" sx={{ height: "100%", display: "flex", alignItems: "center" }}>
-              <Tab label="Kanban" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
-              <Tab label="Loss & Accuracy" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
-              <Tab label="Device Participation" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
+              <Tab label="总览" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
+              <Tab label="损失函数与训练精度" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
+              <Tab label="终端设备参与情况" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
             </Tabs>
+
             <Typography variant="subtitle1" fontWeight="bold" sx={{ color: "#3D315B", display: "flex", alignItems: "center", height: "100%" }}>
               {currentTime}
             </Typography>
@@ -74,27 +74,27 @@ export default function ControlPanel() {
           }}
         >
           <Button variant="contained" color="success" onClick={() => alert("Training Started!")}>
-            Start Training
+            开始训练
           </Button>
           <Button variant="contained" color="error" onClick={() => alert("Training Ended!")}>
-            End Training
+            结束训练
           </Button>
           <Button variant="contained" color="primary" onClick={() => alert("Exporting Statistics...")}>
-            Export Stats
+            导出统计数据
           </Button>
           <Button variant="contained" sx={{ backgroundColor: "#FFB6B9", color: "#FFF" }} onClick={() => alert("Paused Training!")}>
-            Pause Training
+            暂停训练并存档
           </Button>
           <Button variant="contained" sx={{ backgroundColor: "#FFDD67", color: "#000" }} onClick={() => alert("Resumed Training!")}>
-            Resume Training
+            从存档恢复训练
           </Button>
           <Button variant="contained" sx={{ backgroundColor: "#A1C181", color: "#FFF" }} onClick={() => alert("Resetting Training...")}>
-            Reset Training
+            重置训练
           </Button>
         </Box>
 
         {/* Content Area */}
-        <Box sx={{ marginTop: "72px", padding: "12px" }}> {/* Reduced padding for less margin to page borders */}
+        <Box sx={{ marginTop: "50px", padding: "12px" }}> {/* Reduced padding for less margin to page borders */}
           {selectedTab === 0 && (
             <Box
               maxWidth="1400px" // Increased max width for larger cards
@@ -107,10 +107,10 @@ export default function ControlPanel() {
               <Card sx={{ boxShadow: 3, borderRadius: 2, p: 4 }}> {/* Increased padding for larger cards */}
                 <CardContent>
                   <Typography variant="h5" fontWeight="bold" align="center" gutterBottom> {/* Increased font size */}
-                    Federated Training Progress
+                    分割联邦学习训练进度
                   </Typography>
                   <Typography variant="h6" align="center" gutterBottom> {/* Increased font size */}
-                    Round {currentRound} of {totalRounds}
+                    第 {currentRound} 轮，共 {totalRounds} 轮
                   </Typography>
                   <LinearProgress
                     variant="determinate"
@@ -124,7 +124,7 @@ export default function ControlPanel() {
               <Card sx={{ boxShadow: 3, borderRadius: 2, p: 4 }}> {/* Increased padding for larger cards */}
                 <CardContent>
                   <Typography variant="h5" fontWeight="bold" align="center" gutterBottom> {/* Increased font size */}
-                    Current Federated Learning Stage
+                    当前联邦学习阶段
                   </Typography>
                   <Box display="flex" justifyContent="center" mt={2}>
                     <Chip label={currentStage} color="primary" sx={{ fontSize: 16, padding: "8px 16px" }} /> {/* Increased font size and padding */}

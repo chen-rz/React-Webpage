@@ -6,7 +6,7 @@ const DeviceParticipationCard = ({ totalDevices, participatingDevices }) => {
       <CardContent sx={{ padding: "24px" }}>
         {/* Title with increased font size and margin */}
         <Typography variant="h5" fontWeight="bold" align="center" gutterBottom sx={{ marginBottom: "24px" }}> {/* Increased font size and margin */}
-          Device Participation in Current Round
+          当前训练轮次终端设备参与情况
         </Typography>
 
         {/* Adaptive Grid Layout */}
