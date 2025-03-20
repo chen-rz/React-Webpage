@@ -12,33 +12,43 @@ const DeviceParticipationCard = ({ totalDevices, participatingDevices }) => {
         {/* Adaptive Grid Layout */}
         <Box
           display="grid"
-          gridTemplateColumns="repeat(auto-fit, minmax(28px, 1fr))"
-          gap={1.5}
+          gridTemplateColumns="repeat(auto-fit, minmax(40px, 1fr))"
+          gap={3}
           justifyContent="center"
           sx={{ marginLeft: "24px", marginRight: "24px" }}
         >
           {Array.from({ length: totalDevices }, (_, i) => {
             const isParticipating = participatingDevices.has(i);
             return (
-              <Tooltip
+              <Box
                 key={i}
-                title={`Device ${i}: ${isParticipating ? "Involved" : "Not Involved"}`}
-                arrow
-                sx={{
-                  fontSize: "16px", // Larger font size
-                  padding: "8px 12px", // Increased padding
-                }}
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
               >
-                <Box
+                <Tooltip
+                  title={`Device ${i}: ${isParticipating ? "Involved" : "Not Involved"}`}
+                  arrow
                   sx={{
-                    width: 28, // Increased square size
-                    height: 28, // Increased square size
-                    backgroundColor: isParticipating ? "#10b981" : "#ef4444",
-                    borderRadius: 1,
-                    cursor: "pointer",
+                    fontSize: "16px", // Larger font size
+                    padding: "8px 12px", // Increased padding
                   }}
-                />
-              </Tooltip>
+                >
+                  <Box
+                    sx={{
+                      width: 28, // Increased square size
+                      height: 28, // Increased square size
+                      backgroundColor: isParticipating ? "#10b981" : "#ef4444",
+                      borderRadius: 1,
+                      cursor: "pointer",
+                    }}
+                  />
+                </Tooltip>
+                {/* Device ID Number */}
+                <Typography variant="body2" sx={{ marginTop: 1, fontSize: "12px", color: "#3D315B" }}>
+                  {i}
+                </Typography>
+              </Box>
             );
           })}
         </Box>

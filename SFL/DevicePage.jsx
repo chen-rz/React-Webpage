@@ -3,6 +3,7 @@ import { Cpu, Database, Wifi } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
 import Navigation from "./assets/Navigation";
+import DeviceInteractiveBarCharts from "./assets/DeviceInteractiveBarCharts";
 
 import deviceKanbanData from "./data/deviceKanbanData";
 
@@ -36,7 +37,7 @@ export default function ControlPanel() {
             </Typography>
             <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" sx={{ height: "100%", display: "flex", alignItems: "center" }}>
               <Tab label="终端设备信息" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
-              <Tab label="图表" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
+              <Tab label="统计数据" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
             </Tabs>
             <Typography variant="subtitle1" fontWeight="bold" sx={{ color: "#3D315B", display: "flex", alignItems: "center", height: "100%" }}>
               {currentTime}
@@ -120,9 +121,7 @@ export default function ControlPanel() {
           )}
 
           {selectedTab === 1 && (
-            <Box mt={6} maxWidth="1400px" mx="auto"> {/* Increased max width and top margin */}
-              
-            </Box>
+            <DeviceInteractiveBarCharts deviceKanbanData={deviceKanbanData} />
           )}
         </Box>
       </Box>

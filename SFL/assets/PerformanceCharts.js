@@ -6,7 +6,7 @@ function PerformanceCharts({ lossData, accuracyData }) {
     <Card sx={{ boxShadow: 3, borderRadius: 2, p: 3 }}>
       <CardContent>
         <Typography variant="h6" fontWeight="bold" align="center" gutterBottom>
-          Loss and Accuracy Over Time
+          损失函数与训练精度
         </Typography>
 
         {/* Grid for Two Charts */}
@@ -14,7 +14,7 @@ function PerformanceCharts({ lossData, accuracyData }) {
           {/* Loss Chart */}
           <Box>
             <Typography variant="subtitle1" align="center" fontWeight="bold">
-              Loss
+              损失函数
             </Typography>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={lossData}>
@@ -23,7 +23,7 @@ function PerformanceCharts({ lossData, accuracyData }) {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="loss" stroke="#ef4444" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="loss" stroke="#ef4444" strokeWidth={2} dot={false} name="损失函数值" />
               </LineChart>
             </ResponsiveContainer>
           </Box>
@@ -31,7 +31,7 @@ function PerformanceCharts({ lossData, accuracyData }) {
           {/* Accuracy Chart */}
           <Box>
             <Typography variant="subtitle1" align="center" fontWeight="bold">
-              Accuracy
+              训练精度
             </Typography>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={accuracyData}>
@@ -40,7 +40,7 @@ function PerformanceCharts({ lossData, accuracyData }) {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="accuracy" stroke="#10b981" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="accuracy" stroke="#10b981" strokeWidth={2} dot={false} name="精度值" />
               </LineChart>
             </ResponsiveContainer>
           </Box>

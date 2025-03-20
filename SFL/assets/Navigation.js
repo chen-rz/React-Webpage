@@ -1,5 +1,5 @@
 import { Toolbar, Typography, Box, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import { Home, BarChart, Settings } from "@mui/icons-material";
+import { Settings, Dns, Schema, Lan, Home } from "@mui/icons-material";
 import { Outlet, Link } from "react-router-dom";
 import React from "react";
 
@@ -40,7 +40,9 @@ export default function Navigation() {
         <List sx={{ paddingX: "12px" }}>
           {[
             { text: "主面板", icon: <Settings />, link: "/SFL/control" },
-            { text: "终端设备信息", icon: <BarChart />, link: "/SFL/devices" },
+            { text: "终端设备信息", icon: <Dns />, link: "/SFL/devices" },
+            { text: "模型分割", icon: <Schema />, link: "/SFL/split" },
+            { text: "网络连接与拓扑", icon: <Lan />, link: "/SFL/topology" },
             { text: "系统首页", icon: <Home />, link: "/" },
           ].map(({ text, icon, link }) => (
             <ListItem 

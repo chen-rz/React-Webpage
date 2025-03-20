@@ -33,6 +33,8 @@ export default function ControlPanel() {
   const participatingDevices = new Set([25, 28, 23, 16, 37, 38, 3, 35, 17, 14, 9, 36, 12, 34, 29]);
   const systemLoad = 86;
   const currentStage = "终端设备本地训练";
+  const bandwidthUsage = 92;
+  const localModelRatio = 28;
 
   return (
     <Box sx={{ backgroundColor: "#f4f6f8", minHeight: "100vh", p: 4 }}>
@@ -134,7 +136,7 @@ export default function ControlPanel() {
 
               {/* System Load Gauge Card */}
               <Box sx={{ gridColumn: { xs: "1", md: "1 / -1" } }}> {/* Span full width on larger screens */}
-                <SystemLoadGauge systemLoad={systemLoad} participationRate={participationRate} />
+                <SystemLoadGauge systemLoad={systemLoad} participationRate={participationRate} localModelRatio={localModelRatio} bandwidthUsage={bandwidthUsage} />
               </Box>              
             </Box>
           )}
