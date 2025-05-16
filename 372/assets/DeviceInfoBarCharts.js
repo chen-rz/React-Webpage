@@ -10,7 +10,7 @@ const transformDataForBarChart = (data, key) => {
   }));
 };
 
-function DeviceInteractiveBarCharts({ deviceKanbanData }) {
+function DeviceInfoBarCharts({ deviceInfoData }) {
   return (
     <Box display="grid" gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }} gap={3} mx="auto" mt={5}>
       {/* CPU Bar Chart */}
@@ -21,7 +21,7 @@ function DeviceInteractiveBarCharts({ deviceKanbanData }) {
           </Typography>
           <Box width="100%" height={300}>
             <ResponsiveContainer>
-              <BarChart data={transformDataForBarChart(deviceKanbanData, "cpu")}>
+              <BarChart data={transformDataForBarChart(deviceInfoData, "cpu")}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="id" />
                 <YAxis />
@@ -42,7 +42,7 @@ function DeviceInteractiveBarCharts({ deviceKanbanData }) {
           </Typography>
           <Box width="100%" height={300}>
             <ResponsiveContainer>
-              <BarChart data={transformDataForBarChart(deviceKanbanData, "data")}>
+              <BarChart data={transformDataForBarChart(deviceInfoData, "data")}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="id" />
                 <YAxis />
@@ -63,7 +63,7 @@ function DeviceInteractiveBarCharts({ deviceKanbanData }) {
           </Typography>
           <Box width="100%" height={300}>
             <ResponsiveContainer>
-              <BarChart data={transformDataForBarChart(deviceKanbanData, "trans")}>
+              <BarChart data={transformDataForBarChart(deviceInfoData, "trans")}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="id" />
                 <YAxis />
@@ -77,14 +77,14 @@ function DeviceInteractiveBarCharts({ deviceKanbanData }) {
       </Card>
 
       {/* Progress Bar Chart */}
-      <Card sx={{ boxShadow: 3, borderRadius: 2 }}>
+      {/* <Card sx={{ boxShadow: 3, borderRadius: 2 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom mb={2}>
             训练进度 (%)
           </Typography>
           <Box width="100%" height={300}>
             <ResponsiveContainer>
-              <BarChart data={transformDataForBarChart(deviceKanbanData, "progress")}>
+              <BarChart data={transformDataForBarChart(deviceInfoData, "progress")}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="id" />
                 <YAxis />
@@ -95,9 +95,9 @@ function DeviceInteractiveBarCharts({ deviceKanbanData }) {
             </ResponsiveContainer>
           </Box>
         </CardContent>
-      </Card>
+      </Card> */}
     </Box>
   );
 };
 
-export default DeviceInteractiveBarCharts;
+export default DeviceInfoBarCharts;

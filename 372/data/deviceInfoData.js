@@ -1,4 +1,4 @@
-const deviceKanbanData = [
+const deviceInfoData = [
     { id: 25, cpu: 2.613, trans: 89, data: 937, progress: 54 },
     { id: 28, cpu: 4.536, trans: 81, data: 796, progress: 89 },
     { id: 23, cpu: 2.97, trans: 147, data: 1104, progress: 46 },
@@ -16,4 +16,4 @@ const deviceKanbanData = [
     { id: 29, cpu: 4.536, trans: 129, data: 984, progress: 82 },
 ];
 
-export default deviceKanbanData;
+export default deviceInfoData;

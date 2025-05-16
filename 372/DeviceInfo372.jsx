@@ -1,18 +1,18 @@
-import { AppBar, Toolbar, Tabs, Tab, Button, Box, Card, CardContent, Typography, LinearProgress } from "@mui/material";
+import { AppBar, Toolbar, Tabs, Tab, Box, Card, CardContent, Typography, LinearProgress } from "@mui/material";
 import { Cpu, Database, Wifi } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
 import Navigation from "./assets/Navigation";
-import DeviceInteractiveBarCharts from "./assets/DeviceInteractiveBarCharts";
+import DeviceInfoBarCharts from "./assets/DeviceInfoBarCharts";
 
-import deviceKanbanData from "./data/deviceKanbanData";
+import deviceInfoData from "./data/deviceInfoData";
 
-export default function ControlPanel() {
+export default function DeviceInfo372() {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
   const [selectedTab, setSelectedTab] = useState(0);
 
   useEffect(() => {
-    document.title = "分布式人工智能与数据服务";
+    document.title = "分布式智能与数据服务";
     const timer = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
     }, 1000);
@@ -33,7 +33,7 @@ export default function ControlPanel() {
         <AppBar position="fixed" sx={{ background: "#B39CD0", height: "72px", zIndex: 1201, marginLeft: "240px", width: "calc(100% - 240px)", boxShadow: "none" }}>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "100%", borderBottom: "2px solid #B39CD0" }}>
             <Typography variant="h6" noWrap fontWeight="bold" sx={{ color: "#3D315B", display: "flex", alignItems: "center", height: "100%" }}>
-              分割联邦学习控制面板
+              设备信息一览
             </Typography>
             <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" sx={{ height: "100%", display: "flex", alignItems: "center" }}>
               <Tab label="终端设备信息" sx={{ color: "#3D315B", fontWeight: "bold", height: "100%", display: "flex", alignItems: "center" }} />
@@ -45,40 +45,6 @@ export default function ControlPanel() {
           </Toolbar>
         </AppBar>
 
-        {/* Control Buttons Box */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 2,
-            backgroundColor: "#F8E1F4", // Light purple matching sidebar hover
-            padding: "12px",
-            borderRadius: "12px",
-            boxShadow: 2,
-            marginTop: "40px",
-            flexWrap: "wrap",
-          }}
-        >
-          <Button variant="contained" color="success" onClick={() => alert("Training Started!")}>
-            开始训练
-          </Button>
-          <Button variant="contained" color="error" onClick={() => alert("Training Ended!")}>
-            结束训练
-          </Button>
-          <Button variant="contained" color="primary" onClick={() => alert("Exporting Statistics...")}>
-            导出统计数据
-          </Button>
-          <Button variant="contained" sx={{ backgroundColor: "#FFB6B9", color: "#FFF" }} onClick={() => alert("Paused Training!")}>
-            暂停训练并存档
-          </Button>
-          <Button variant="contained" sx={{ backgroundColor: "#FFDD67", color: "#000" }} onClick={() => alert("Resumed Training!")}>
-            从存档恢复训练
-          </Button>
-          <Button variant="contained" sx={{ backgroundColor: "#A1C181", color: "#FFF" }} onClick={() => alert("Resetting Training...")}>
-            重置训练
-          </Button>
-        </Box>
-
         {/* Content Area */}
         <Box sx={{ marginTop: "50px", padding: "12px" }}> {/* Reduced padding for less margin to page borders */}
 
@@ -88,7 +54,7 @@ export default function ControlPanel() {
 
           {selectedTab === 0 && (
             <Box display="grid" gridTemplateColumns={{ xs: "1fr", md: "repeat(5, 1fr)" }} gap={3} mx="auto" mt={5}>
-              {deviceKanbanData.map((device) => (
+              {deviceInfoData.map((device) => (
                 <Card key={device.id} sx={{ boxShadow: 3, borderRadius: 2 }}>
                   <CardContent>
                     <Typography variant="h6" gutterBottom mb={2}>
@@ -121,7 +87,7 @@ export default function ControlPanel() {
           )}
 
           {selectedTab === 1 && (
-            <DeviceInteractiveBarCharts deviceKanbanData={deviceKanbanData} />
+            <DeviceInfoBarCharts deviceInfoData={deviceInfoData} />
           )}
         </Box>
       </Box>

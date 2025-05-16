@@ -1,0 +1,5 @@
+export const BACKEND_URL = "10.128.201.131:28000";
+
+export const BACKEND_URL_A = "10.128.201.131:28881";
+export const BACKEND_URL_B = "74.225.244.150:37722";
+export const BACKEND_URL_C = "74.225.244.150:37723";

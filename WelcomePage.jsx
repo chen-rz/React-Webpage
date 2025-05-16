@@ -16,9 +16,9 @@ const WelcomePage = () => {
     document.title = "分布式人工智能与数据服务";
   }, []);
 
-  // Define sub-system panels with macaron pastel colors
+  // TODO Define sub-system panels with macaron pastel colors
   const panels = [
-    { name: "分割联邦学习", icon: <ModelTrainingIcon fontSize="large" />, route: "/F/main", color: "#FFC3A0" },
+    { name: "分割联邦学习", icon: <ModelTrainingIcon fontSize="large" />, route: "/372/main", color: "#FFC3A0" },
     { name: "异构联邦学习", icon: <DevicesIcon fontSize="large" />, route: "/notyet", color: "#A0E7E5" },
     { name: "边缘大小模型协同", icon: <CloudSyncIcon fontSize="large" />, route: "/inference", color: "#B4F8C8" },
     { name: "分布式推理服务", icon: <StorageIcon fontSize="large" />, route: "/data-cache", color: "#FFDEAD" },
